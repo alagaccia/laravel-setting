@@ -12,7 +12,7 @@ if (! function_exists('getSetting')) {
      */
     function getSetting(string $code, $default = null)
     {
-        $setting = Setting::getByCode($code);
+        $setting = Setting::where('code', $code)->first();
         
         if (!$setting) {
             return $default;
